@@ -1,5 +1,5 @@
 import {Order} from "@/models/Order";
-import {authOptions, isAdmin} from "@/app/api/auth/[...nextauth]/route";
+import {authOptions} from "@/app/api/auth/[...nextauth]/route";
 import mongoose from "mongoose";
 import { getServerSession } from "next-auth";
 
@@ -8,7 +8,7 @@ export async function GET(req) {
 
     const session = await getServerSession(authOptions);
     const userEmail = session?.user?.email;
-    const admin = await isAdmin();
+    let isAdmin = false;
 
     const url = new URL(req.url);
     const _id = url.searchParams.get('_id');
@@ -16,7 +16,14 @@ export async function GET(req) {
         return Response.json( await Order.findById(_id));
     }
 
-    if(admin) {
+    if(userEmail) {
+        const useInfo = await UserInfo.findOne({email:userEmail});
+        if(userInfo) {
+            isAdmin = userInfo.admin;
+        }
+    }
+            
+    if(isAdmin) {
         return Response.json(await Order.find());
     }
     
