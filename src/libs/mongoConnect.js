@@ -1,5 +1,5 @@
 // This approach is taken from https://github.com/vercel/next.js/tree/canary/examples/with-mongodb
-import { MongoClient, ServerApiVersion } from "mongodb"
+import { MongoClient} from "mongodb"
  
 if (!"mongodb+srv://riddharc2004:hLeIdyJt3nLnkPko@cluster0.bgxhztx.mongodb.net/food-ordering") {
   throw new Error('Invalid/Missing environment variable: "MONGODB_URI"')

@@ -1,6 +1,5 @@
 'use client';
 import { useProfile } from "@/components/UseProfile";
-import SectionHeaders from "@/components/layout/SectionHeaders";
 import { dbTimeForHuman } from "@/libs/datatime";
 import UserTabs from "@/components/layout/UserTabs";
 import { useEffect, useState } from "react";

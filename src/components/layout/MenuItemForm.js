@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import Trash from "@/components/icons/Trash";
-import Plus from "@/components/icons/Plus";
 import MenuItemPriceProps from "@/components/layout/menuItemsPriceProps";
 
 export default function MenuItemForm({onSubmit,menuItem}) {

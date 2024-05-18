@@ -1,8 +1,6 @@
 "use client";
 import { useSession } from "next-auth/react";
 import { useState,useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
 import UserTabs from "@/components/layout/UserTabs";
