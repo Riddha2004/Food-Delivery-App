@@ -91,8 +91,8 @@ export default function CartPage() {
                  <div>No Products in Your Shopping Cart</div>
                )}
                {cartProducts?.length > 0 && cartProducts.map((product, index) => (
-                  <div className="flex items-center gap-4 border-b py-4">
-                  <div classNmae="w-24">
+                  <div key={index} className="flex items-center gap-4 border-b py-4">
+                  <div className="w-24">
                       <img width={240} height={240} src={product.image} alt={''} />
                   </div>
                   <div className="w-96">
