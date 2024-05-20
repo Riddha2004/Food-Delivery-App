@@ -3,7 +3,8 @@ import {CartContext} from "@/components/AppContext";
 import { cartProductPrice } from "@/components/AppContext";
 import SectionHeaders from "@/components/layout/SectionHeaders";
 import { useContext, useEffect, useState } from "react";
-import Trash from "@/components/icons/Trash";
+// import CartProduct from "@/components/Menu/CartProduct"
+import Trash from "@/components/icons"
 import AddressInputs from "@/components/layout/AddressInputs";
 import { useProfile } from "@/components/UseProfile";
 import toast from "react-hot-toast";
