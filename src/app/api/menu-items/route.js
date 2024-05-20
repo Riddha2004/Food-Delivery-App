@@ -1,6 +1,6 @@
 import { MenuItem } from "@/models/MenuItem";
 import mongoose from "mongoose";
-import { isAdmin } from "@/app/api/auth/[...nextauth]";
+import { isAdmin } from "@/app/api/auth/[...nextauth]/route";
 
 export async function POST(req) {
   mongoose.connect("mongodb+srv://riddharc2004:hLeIdyJt3nLnkPko@cluster0.bgxhztx.mongodb.net/food-ordering");
