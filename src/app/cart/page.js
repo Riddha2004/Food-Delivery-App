@@ -3,7 +3,7 @@ import {CartContext} from "@/components/AppContext";
 import { cartProductPrice } from "@/components/AppContext";
 import SectionHeaders from "@/components/layout/SectionHeaders";
 import { useContext, useEffect, useState } from "react";
-import CartProduct from "@/components/Menu/CartProduct"
+import Trash from "@/components/icons/Trash";
 import AddressInputs from "@/components/layout/AddressInputs";
 import { useProfile } from "@/components/UseProfile";
 import toast from "react-hot-toast";
@@ -90,11 +90,39 @@ export default function CartPage() {
                  <div>No Products in Your Shopping Cart</div>
                )}
                {cartProducts?.length > 0 && cartProducts.map((product, index) => (
-                  <CartProduct 
-                     key={index}
-                     product={product} 
-                     onRemove={removeCartProducts}
-                  />
+                  <div className="flex items-center gap-4 border-b py-4">
+                  <div classNmae="w-24">
+                      <img width={240} height={240} src={product.image} alt={''} />
+                  </div>
+                  <div className="w-96">
+                      <h3 className="font-semibold">
+                          {product.name}
+                      </h3>
+                      {product.size && (
+                          <div className="text-sm">
+                              Size: <span>{product.size.name}</span>
+                          </div>
+                      )}
+                      {product.extras?.length > 0 && (
+                          <div className="text-sm text-gray-500">
+                              {product.extras.map(extra => (
+                                  <div key={extra.name} >{extra.name} Rs.{extra.price}</div>
+                              ))}
+                          </div>
+                      )}
+                  </div>
+                  <div className="text-md font-semibold ">
+                      Rs.{cartProductPrice(product)}
+                  </div>
+                      <div className="ml-2">
+                      <button
+                          type="button"
+                          onClick={() => removeCartProducts(index)}
+                          className="p-2">
+                          <Trash />
+                      </button>
+                    </div>
+              </div>
                ))}
                <div className="py-2 pr-16 flex justify-end items-center">
                 <div className="text-gray-500">
